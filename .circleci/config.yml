@@ -6,7 +6,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "88:84:cc:55:22:a8:76:7e:70:b5:36:8f:00:7b:b5:81"
+            - "08:69:39:c9:94:8e:1c:76:80:bf:56:24:63:48:de:f1"
       - run: docker build -t devops-demo .
       - run: docker run devops-demo:latest npm test
       - run: sh .circleci/deployments/prod.sh
