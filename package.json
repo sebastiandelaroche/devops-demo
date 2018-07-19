@@ -1,0 +1,20 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "devops experiment",
+  "main": "src/bin/www",
+  "repository": "https://github.com/sebastiandelaroche/devops-demo.git",
+  "author": "sebastianroche17@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/bin/www",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "5.0.5",
+    "supertest": "3.0.0"
+  }
+}

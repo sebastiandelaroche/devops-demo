@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: docker build -t devops-demo .
+      - run: docker run devops-demo:latest npm test
+
+  deploy-qa:
+    machine: true
+    steps:
+      - checkout
+      - run: sh .circleci/deployments/qa.sh
+
+  deploy-prod:
+    machine: true
+    steps:
+      - checkout
+      - run: sh .circleci/deployments/prod.sh
+
+workflows:
+  version: 2
+  central_flow:
+    jobs:
+      - build
+      - deploy-qa:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /feature-.*/
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
