@@ -6,7 +6,7 @@ jobs:
       - checkout
       - run: docker build -t devops-demo .
       - run: docker run devops-demo:latest npm test
-      - sh .circleci/deployments/prod.sh
+      - run: sh .circleci/deployments/prod.sh
 
   deploy-qa:
     machine: true
