@@ -26,11 +26,7 @@ jobs:
       - run: gcloud --quiet config set project $GCP_PROJECT
       - run: gcloud docker -- push gcr.io/$GCP_PROJECT/$IMAGE_NAME:$CIRCLE_SHA1
       - run: cd infra && terraform init -input=false && \
-            terraform apply -input=false -auto-approve && cd .. && \
-            git config --global user.email "aspadevs@gmail.com" && \
-            git config --global user.name "sebastiandelaroche" && \
-            git add infra && git commit -m "Deployed $CIRCLE_BUILD_NUM [skip ci]" && \
-            git push origin master
+            terraform apply -input=false -auto-approve
 
 workflows:
   version: 2
