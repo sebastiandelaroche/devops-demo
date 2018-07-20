@@ -4,8 +4,8 @@ jobs:
     machine: true
     steps:
       - checkout
-      # - run: docker build -t devops-demo .
-      # - run: docker run devops-demo:latest npm test
+      - run: docker build -t devops-demo .
+      - run: docker run devops-demo:latest npm test
 
   deploy-qa:
     machine: true
@@ -28,6 +28,9 @@ jobs:
           export TF_VAR_gcp_project=$GCP_PROJECT
           export TF_VAR_image_name=$IMAGE_NAME
           export TF_VAR_circle_sha1=$CIRCLE_SHA1
+          export TF_VAR_cluster_kubernetes_host=$CLUSTER_KUBERNETES_HOST
+          export TF_VAR_cluster_kubernetes_username=$CLUSTER_KUBERNETES_USERNAME
+          export TF_VAR_cluster_kubernetes_password=$CLUSTER_KUBERNETES_PASSWORD
 
           wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
           unzip /tmp/terraform.zip -d ~/bin

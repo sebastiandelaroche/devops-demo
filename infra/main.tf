@@ -1,7 +1,7 @@
 provider "kubernetes" {
-  host     = "https://35.224.137.161"
-  username = "admin"
-  password = "9AlygNOPh6dCFFXW"
+  host     = "${var.cluster_kubernetes_host}"
+  username = "${var.cluster_kubernetes_username}"
+  password = "${var.cluster_kubernetes_password}"
 }
 
 resource "kubernetes_pod" "example" {
