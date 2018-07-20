@@ -25,9 +25,11 @@ jobs:
           gcloud docker -- push gcr.io/$GCP_PROJECT/$IMAGE_NAME:$CIRCLE_SHA1
           gcloud container clusters get-credentials cluster-dev --zone us-central1-a --project development-207315
 
-          export TF_VAR_GCP_PROJECT=$GCP_PROJECT
-          export TF_VAR_IMAGE_NAME=$IMAGE_NAME
-          export TF_VAR_CIRCLE_SHA1=$CIRCLE_SHA1
+          export TF_VAR_gcp_project=$GCP_PROJECT
+          export TF_VAR_image_name=$IMAGE_NAME
+          export TF_VAR_circle_sha1=$CIRCLE_SHA1
+
+          echo TF_VAR_image_name
 
           wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
           unzip /tmp/terraform.zip -d ~/bin

@@ -1,11 +1,11 @@
-variable "GCP_PROJECT" {
+variable "gcp_project" {
   type = "string"
 }
 
-variable "IMAGE_NAME" {
+variable "image_name" {
   type = "string"
 }
 
-variable "CIRCLE_SHA1" {
+variable "circle_sha1" {
   type = "string"
 }
