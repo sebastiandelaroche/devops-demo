@@ -34,8 +34,8 @@ resource "kubernetes_service" "example" {
     session_affinity = "ClientIP"
 
     port {
-      port        = 8080
-      target_port = 80
+      port        = 3000
+      target_port = 3000
     }
 
     type = "LoadBalancer"
