@@ -1,6 +1,9 @@
 # wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
 # unzip /tmp/terraform.zip -d ~/bin
 
+echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+docker build --rm=false -t gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1 .
+docker run gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1 npm test
 gcloud auth activate-service-account --key-file $HOME/gcp-key.json
 gcloud --quiet config set project $GCP_PROJECT
 gcloud docker -- push gcr.io/$GCP_PROJECT/$IMAGE_NAME:$CIRCLE_SHA1
