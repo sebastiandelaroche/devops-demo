@@ -15,7 +15,7 @@ resource "kubernetes_pod" "example" {
 
   spec {
     container {
-      image = "gcr.io/${var.GCP_PROJECT}/${var.IMAGE_NAME}:${var.CIRCLE_SHA1}"
+      image = "gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:${CIRCLE_SHA1}"
       name  = "example"
     }
   }
