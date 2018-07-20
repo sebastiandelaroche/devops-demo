@@ -4,8 +4,8 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker build -t devops-demo .
-      - run: docker run devops-demo:latest npm test
+      # - run: docker build -t devops-demo .
+      # - run: docker run devops-demo:latest npm test
 
   deploy-qa:
     machine: true
