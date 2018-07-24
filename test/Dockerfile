@@ -7,4 +7,4 @@ COPY . /app/
 
 RUN yarn
 
-CMD ["npm", "start"]
+CMD ["npm", "test"]
